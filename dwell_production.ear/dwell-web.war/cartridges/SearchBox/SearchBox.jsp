@@ -23,6 +23,11 @@
   <dsp:getvalueof var="contextPath" vartype="java.lang.String" value="${originatingRequest.contextPath}"/>
   <dsp:getvalueof var="actionPath" bean="DefaultActionPathProvider.defaultExperienceManagerNavigationActionPath"/>
 
+<c:set var="javascriptRoot" value="${pageContext.request.contextPath}/javascript"/>
+	<script type="text/javascript" src="${javascriptRoot}/widget/AutoSuggest2.js"></script>  
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    
   <fmt:message var="hintText" key="common.search.input"/>
   <fmt:message var="submitText" key="search_simpleSearch.submit"/>
   
@@ -64,14 +69,14 @@
       </c:if>
       
       <dsp:input class="text atg_store_searchInput" bean="SearchFormHandler.intxt" name="Ntt" value="" placeholder="Search Here" type="text" 
-        id="atg_store_searchInput" title="${hintText}" autocomplete="${nativeAutoCompleteState}"/>
+        id="searchBar" onKeypress="myFunction()" title="${hintText}" autocomplete="${nativeAutoCompleteState}"/>
       
       
       <span class="atg_store_smallButton">
       	<dsp:input type="submit" bean="SearchFormHandler.SuccessURL"
-          type="hidden" value="cartridges/DwellProductList/DwellProductList.jsp"/>
+          type="hidden" value="/cartridges/DwellProductList/DwellProductList.jsp"/>
         <dsp:input type="submit" bean="SearchFormHandler.search" name="search" 
-          value="search" id="atg_store_searchSubmit" title="${submitText}"/>
+          value="search" class="input-submit" id="atg_store_searchSubmit" title="${submitText}"/>
       </span>
       
     </dsp:form> 

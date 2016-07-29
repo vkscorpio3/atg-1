@@ -1,6 +1,6 @@
 <dsp:page>
-<link rel="stylesheet" href="/dwellstore/css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-<link rel="stylesheet" href="/dwellstore/css/screen.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+<link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+<link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 <body class=" cms-index-index cms-home">
 <div class="wrapper">
 <div class="page">
@@ -8,7 +8,7 @@
 <dsp:importbean bean="/atg/endeca/assembler/droplet/InvokeAssembler"/>
 <dsp:importbean bean="/atg/commerce/catalog/ProductLookup"/>
 <dsp:importbean bean="/DwellDroplet/DefaultSkuDroplet" />
-<dsp:getvalueof var="content" vartype="com.endeca.infront.assembler.ContentItem" value="${originatingRequest.contentItem}"/> 
+<dsp:getvalueof var="content" vartype="com.endeca.infront.assembler.ContentItem" value="/"/> 
   <dsp:droplet name="InvokeAssembler">
     <dsp:param name="contentCollection" value="/content/Web/Browse"/>
     <dsp:oparam name="output">
@@ -32,12 +32,12 @@
  <dsp:droplet name="ProductLookup">
  <dsp:param name="id" value="${record.attributes['product.repositoryId']}"/>
 <dsp:param value="product" name="elementName" /> 
- <dsp:oparam name="output"><br>
+ <dsp:oparam name="output">
     <li class="item">
-    <dsp:a href="/dwellstore/browse/productDetail.jsp">
+    <dsp:a href="/browse/productDetail.jsp">
     <dsp:param name="product_id" param="product.id" />
  <dsp:getvalueof var="img" param="product.LargeImage.URL" />
- <img src="/dwellstore/${img}" width="240" height="200" />
+ <img src="/${img}" width="240" height="200" />
 <h2 class="product-name"><dsp:valueof param="product.displayname"/></h2>
  <!--<p><dsp:valueof param="product.description"/></p>-->
 	<div class="product-price">
